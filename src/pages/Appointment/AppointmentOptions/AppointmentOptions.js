@@ -5,7 +5,7 @@ import AppointmentModal from '../AppointmentModal/AppointmentModal';
 
 const Treatments = ({ selectedDate }) => {
     const [appointmentOptions, setAppointmentOptions] = useState([])
-    // const [treatment, setTreatment] = useState({})
+    const [treatment, setTreatment] = useState({})
     useEffect(() => {
         fetch('Treatments.json')
             .then(res => res.json())
@@ -19,14 +19,14 @@ const Treatments = ({ selectedDate }) => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
-                    appointmentOptions.map(option => <AppointmentOption key={option._id} setTreatment={setAppointmentOptions} appointmentOption={option}></AppointmentOption>)
+                    appointmentOptions.map(option => <AppointmentOption key={option._id} setTreatment={setTreatment} appointmentOption={option}></AppointmentOption>)
                 }
             </div>
 
 
 
 
-            <AppointmentModal treatment={appointmentOptions}></AppointmentModal>
+            <AppointmentModal treatment={treatment}></AppointmentModal>
 
         </div>
     );
